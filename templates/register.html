@@ -1,0 +1,148 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+    <div class="content-section">
+
+        <form method="post" action="">
+
+            {{form.hidden_tag()}}
+
+            <fieldset class="form-group">
+
+                <legend class="border-botttom mb-4">
+                    Please Fill Below Form
+                </legend>
+
+
+                <div class="form-group">
+                    {{form.patient_name.label(class="form-control-label")}}
+                    {%  if form.patient_name.errors %}
+                        {{ form.patient_name(class="form-control form-control is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.patient_name.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{form.patient_name(class="form-control form-control")}}
+                    {% endif %}
+                </div>
+
+                <div class="form-group">
+                    {{form.age.label(class="form-control-label")}}
+                    {%  if form.age.errors %}
+                        {{ form.age(class="form-control form-control is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.age.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{form.age(class="form-control form-control")}}
+                    {% endif %}
+                </div>
+
+                <div class="form-group">
+                    {{form.height.label(class="form-control-label")}}
+                    {%  if form.height.errors %}
+                        {{ form.height(class="form-control form-control is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.height.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{form.height(class="form-control form-control")}}
+                    {% endif %}
+                </div>
+
+                <div class="form-group">
+                    {{form.weight.label(class="form-control-label")}}
+                    {%  if form.weight.errors %}
+                        {{ form.weight(class="form-control form-control is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.weight.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{form.weight(class="form-control form-control")}}
+                    {% endif %}
+                </div>
+
+                <div class="form-group">
+                    {{form.gender.label}}
+                    {{form.gender}}
+                </div>
+
+                <div class="form-group">
+                    {{form.s_bp.label(class="form-control-label")}}
+                    {%  if form.s_bp.errors %}
+                        {{ form.s_bp(class="form-control form-control is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.s_bp.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{form.s_bp(class="form-control form-control")}}
+                    {% endif %}
+                </div>
+
+                <div class="form-group">
+                    {{form.d_bp.label(class="form-control-label")}}
+                    {%  if form.d_bp.errors %}
+                        {{ form.d_bp(class="form-control form-control is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.d_bp.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{form.d_bp(class="form-control form-control")}}
+                    {% endif %}
+                </div>
+
+                <div class="form-group">
+                    {{form.ch_level.label}}
+                    {{form.ch_level}}
+                </div>
+
+                <div class="form-group">
+                    {{form.gh_level.label}}
+                    {{form.gh_level}}
+                </div>
+
+                <div class="form-group">
+                    {{form.smoke.label}}
+                    {{form.smoke}}
+                </div>
+
+                <div class="form-group">
+                    {{form.alcohol.label}}
+                    {{form.alcohol}}
+                </div>
+
+                <div class="form-group">
+                    {{form.activity.label}}
+                    {{form.activity}}
+                </div>
+
+
+
+
+
+
+
+            </fieldset>
+            <div class="form-group">
+                    {{form.test(class="btn btn-outline-info")}}
+                </div>
+            <div class="border-top pt-3">
+
+            </div>
+        </form>
+    </div>
+
+{%endblock content%}
