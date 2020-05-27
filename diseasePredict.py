@@ -33,7 +33,7 @@ def register():
 @app.route("/result", methods=['GET', 'POST'])
 def result():
     try:
-        final_prediction_json: dict = processed_data(prediction_data)
+        final_prediction_json = processed_data(prediction_data)
         print(final_prediction_json)
         prediction_value = disease.predict_on_user_input(final_prediction_json)
         print("final prediction value is " + str(prediction_value))
