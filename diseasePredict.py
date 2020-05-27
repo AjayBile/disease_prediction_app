@@ -7,8 +7,6 @@ app = Flask(__name__)
 
 app.config['SECRET_KEY'] = 'd5b22a2f57aa2a933a99be291d616654'
 
-prediction_data: dict = {}
-
 
 @app.route("/", methods=['GET', 'POST'])
 def register():
