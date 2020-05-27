@@ -39,10 +39,10 @@ def result():
         print("final prediction value is " + str(prediction_value))
 
         if prediction_value == 0:
-            result_to_display: str = "Our Diagnosis suggests that patient does not suffers from any cardiovascular disease."
+            result_to_display = "Our Diagnosis suggests that patient does not suffers from any cardiovascular disease."
         else:
-            result_to_display: str = "Our diagnosis suggests patient does suffer from cardiovascular disease.\nPlease get " \
-                                     "checked soon. "
+            result_to_display = "Our diagnosis suggests patient does suffer from cardiovascular disease.\nPlease get " \
+                                "checked soon. "
 
         return render_template('prediction.html', title='Result', result_to_display=result_to_display)
     except Exception as e:
