@@ -29,20 +29,24 @@ def register():
     return render_template('register.html', title='Details', form=form)
 
 
-@app.route("/result", methods=['GET'])
+@app.route("/result", methods=['GET', 'POST'])
 def result():
-    form = RegistrationForm()
-    final_prediction_json: dict = processed_data(prediction_data)
-    print(final_prediction_json)
-    prediction_value = disease.predict_on_user_input(final_prediction_json)
-    print("final prediction value is " + str(prediction_value))
+    try:
+        final_prediction_json: dict = processed_data(prediction_data)
+        print(final_prediction_json)
+        prediction_value = disease.predict_on_user_input(final_prediction_json)
+        print("final prediction value is " + str(prediction_value))
 
-    if prediction_value == 0:
-        result_to_display: str = "Our Diagnosis suggests that patient does not suffers from any cardiovascular disease."
-    else:
-        result_to_display: str = "Our diagnosis suggests patient does suffer from cardiovascular disease.\nPlease get checked soon."
+        if prediction_value == 0:
+            result_to_display: str = "Our Diagnosis suggests that patient does not suffers from any cardiovascular disease."
+        else:
+            result_to_display: str = "Our diagnosis suggests patient does suffer from cardiovascular disease.\nPlease get " \
+                                     "checked soon. "
 
-    return render_template('prediction.html', title='Result', result_to_display=result_to_display)
+        return render_template('prediction.html', title='Result', result_to_display=result_to_display)
+    except Exception as e:
+        print(str(e))
+        return redirect(url_for('register'))
 
 
 def processed_data(input_dict: dict):
