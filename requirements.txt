@@ -6,7 +6,7 @@ Flask-WTF==0.14.3
 idna==2.9
 itsdangerous==1.1.0
 Jinja2==2.11.2
-joblib==0.15.1
+joblib
 MarkupSafe==1.1.1
 numpy==1.18.4
 pandas==1.0.3
