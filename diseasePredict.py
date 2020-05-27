@@ -6,11 +6,14 @@ import disease
 app = Flask(__name__)
 
 app.config['SECRET_KEY'] = 'd5b22a2f57aa2a933a99be291d616654'
+
 prediction_data: dict = {}
 
 
 @app.route("/", methods=['GET', 'POST'])
 def register():
+    global prediction_data
+    prediction_data = {}
     form = RegistrationForm()
     if form.validate_on_submit():
         prediction_data['age_yr'] = int(form.age.data)
@@ -68,3 +71,7 @@ def processed_data(input_dict: dict):
                 input_dict[dict_key] = 2
 
     return input_dict
+
+
+if __name__ == '__main__':
+    app.run()
