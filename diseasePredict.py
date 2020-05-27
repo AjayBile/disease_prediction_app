@@ -50,7 +50,7 @@ def result():
         return redirect(url_for('register'))
 
 
-def processed_data(input_dict: dict):
+def processed_data(input_dict):
     for dict_key in input_dict.keys():
         if dict_key in ['cholesterol', 'gluc', 'smoke', 'alco', 'active', 'gender']:
             if input_dict[dict_key][0] == "Normal":
